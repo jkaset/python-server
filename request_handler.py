@@ -1,5 +1,5 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
+from animals import get_all_animals
 
 # Here's a class. It inherits from another class.
 # For now, think of a class as a container for functions that
@@ -31,15 +31,19 @@ class HandleRequests(BaseHTTPRequestHandler):
         # Your new console.log() that outputs to the terminal
         print(self.path)
 
-        # It's an if..else statement
-        if self.path == "/animals":
-            # In Python, this is a list of dictionaries
-            # In JavaScript, you would call it an array of objects
-            response = [
-                { "id": 1, "name": "Snickers", "species": "Dog" },
-                { "id": 2, "name": "Lenny", "species": "Cat" }
-            ]
+        # # It's an if..else statement
+        # if self.path == "/animals":
+        #     # In Python, this is a list of dictionaries
+        #     # In JavaScript, you would call it an array of objects
+        #     response = [
+        #         { "id": 1, "name": "Snickers", "species": "Dog" },
+        #         { "id": 2, "name": "Lenny", "species": "Cat" }
+        #     ]
 
+        # else:
+        #     response = []
+        if self.path == "/animals":
+            response = get_all_animals()
         else:
             response = []
 
