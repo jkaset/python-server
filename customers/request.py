@@ -23,3 +23,13 @@ def get_single_customer(id):
         if customer["id"] == id:
             requested_customer = customer
     return requested_customer
+
+def create_customer(customer):
+    max_id = CUSTOMERS[-1]["id"]
+
+    # Add 1 to whatever that number is
+    new_id = max_id + 1
+    customer["id"] = new_id
+    CUSTOMERS.append(customer)
+    # Return the dictionary with `id` property added
+    return customer
