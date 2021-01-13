@@ -1,15 +1,15 @@
 CUSTOMERS = [
     {
+        "id": 1,
         "email": "jas@jas.com",
         "password": "jas",
-        "name": "Jas Kas",
-        "id": 1
+        "name": "Jas Kas"
     },
     {
+        "id": 2,
         "email": "beef@beef.com",
         "password": "beef",
-        "name": "Beef Lasagna",
-        "id": 2
+        "name": "Beef Lasagna"
     }
 ]
 

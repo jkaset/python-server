@@ -88,11 +88,11 @@ class HandleRequests(BaseHTTPRequestHandler):
         # function next.
         if resource == "animals":
             new_entry = create_animal(post_body)
-        if resource == "locations":
+        elif resource == "locations":
             new_entry = create_location(post_body)
-        if resource == "employees":
+        elif resource == "employees":
             new_entry = create_employee(post_body)
-        if resource == "customers":
+        elif resource == "customers":
             new_entry = create_customer(post_body)
 
         self.wfile.write(f"{new_entry}".encode())
