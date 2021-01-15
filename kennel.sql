@@ -71,4 +71,27 @@ SELECT
     a.location_id,
     a.customer_id
 FROM animal a
-WHERE a.id = 3
+WHERE a.id = 4;
+
+SELECT
+    a.id,
+    a.email,
+    a.password,
+    a.name
+FROM customer a
+WHERE a.id = 3;
+
+SELECT
+    c.id,
+    c.email,
+    c.password,
+    c.name
+FROM customer c
+WHERE c.id = 2;
+
+SELECT
+    l.id,
+  	l.name,
+    l.address
+FROM location l
+WHERE l.id = 2;
