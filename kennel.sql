@@ -2,13 +2,7 @@ CREATE TABLE `Location` (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	`name`	TEXT NOT NULL,
 	`address`	TEXT NOT NULL
-);INSERT INTO Employee (id, name, address, location_id)
-VALUES (
-		id:INTEGER,
-		'name:TEXT',
-		'address:TEXT',
-		location_id:INTEGER
-	);
+);
 
 CREATE TABLE `Customer` (
     `id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
