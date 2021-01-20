@@ -77,13 +77,13 @@ class HandleRequests(BaseHTTPRequestHandler):
             if key == "email" and resource == "customers":
                 response = get_customers_by_email(value)
 
-            if key == "location_id" and resource == "animals":
+            elif key == "location_id" and resource == "animals":
                 response = get_animals_by_location(value)
 
-            if key == "status" and resource == "animals":
+            elif key == "status" and resource == "animals":
                 response = get_animals_by_status(value)
             
-            if key == "location_id" and resource == "employees":
+            elif key == "location_id" and resource == "employees":
                 response = get_employees_by_location(value)
 
                 
