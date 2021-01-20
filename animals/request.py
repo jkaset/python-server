@@ -92,8 +92,6 @@ def get_single_animal(id):
         conn.row_factory = sqlite3.Row
         db_cursor = conn.cursor()
 
-        # Use a ? parameter to inject a variable's value
-        # into the SQL statement.
         db_cursor.execute("""
         SELECT
             a.id,
@@ -101,8 +99,16 @@ def get_single_animal(id):
             a.breed,
             a.status,
             a.location_id,
-            a.customer_id
+            a.customer_id,
+            l.name location_name,
+            l.address location_address,
+            c.name customer_name,
+            c.address customer_address
         FROM animal a
+        JOIN Location l
+            ON l.id = a.location_id
+        JOIN Customer c
+            ON c.id = a.customer_id
         WHERE a.id = ?
         """, ( id, ))
 
@@ -110,9 +116,20 @@ def get_single_animal(id):
         data = db_cursor.fetchone()
 
         # Create an animal instance from the current row
-        animal = Animal(data['id'], data['name'], data['breed'],
-                            data['status'], data['location_id'],
-                            data['customer_id'])
+        animal = Animal(data['id'], data['name'], data['breed'], data['status'], data['location_id'],
+        data['customer_id'])
+
+        # Create a Location instance from the current row
+        location = Location(data['location_id'], data['location_name'], data['location_address'])
+            
+            
+        animal.location = location.__dict__
+    # Create a CUSTOMER instance from the current data
+        customer = Customer(data['customer_id'], data['customer_name'], data['customer_address'])
+
+    # Add the dictionary representation of the location to the animal
+        animal.customer = customer.__dict__
+
 
         return json.dumps(animal.__dict__)
 
